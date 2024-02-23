@@ -14,21 +14,21 @@ Fire_Reported = 0
 # Function to play alarm sound
 def play_alarm_sound_function():
     while True:
-        playsound.playsound("Sur Camera/alarm.mp3", True)
+        playsound.playsound("alarm.mp3", True)
 
 
 # Function to send email
 def send_mail_function():
-    recipientEmail = "srirampolisetti2003@gmail.com"
+    recipientEmail = "example1@gmail.com" #Give an reciptant email
     recipientEmail = recipientEmail.lower()
 
     try:
-        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server = smtplib.SMTP('smtp.gmail.com', 587) # 578 is the port number which is used to send mails
         server.ehlo()
         server.starttls()
-        server.login("saisanuth@gmail.com", 'bhnjkjh')
-        server.sendmail('saisanuth@gmail.com', recipientEmail,
-                        "Warning A Fire Accident has been reported on ABC Company")
+        server.login("example2h@gmail.com", 'bhnjkjh') # add reciver email and the password
+        server.sendmail('example2@gmail.com', recipientEmail,
+                        "Warning A Fire Accident has been reported on ABC Company") #Add the message you want to send through main
         print("sent to {}".format(recipientEmail))
         server.close()
         print("mail send")
@@ -37,7 +37,7 @@ def send_mail_function():
 
 
 # Video capture
-video = cv2.VideoCapture("Sur Camera/fire.mp4")
+video = cv2.VideoCapture("fire.mp4")
 
 # Main loop
 while True:
